@@ -55,11 +55,12 @@ console.log(this.state.error);
         <Form onSubmit={this.handelSubmit}>
           <Form.Group onChange={this.NameChange} className="mb-3" controlId="formBasicEmail">
             <Form.Label>location Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter the location Name" />
+            <Form.Control name="name" type="text" placeholder="Enter the location Name" />
 
           </Form.Group>
 
 
+ 
 
           <Button variant="primary" type="submit">
             Submit
