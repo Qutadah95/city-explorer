@@ -11,6 +11,8 @@ export class App extends Component {
       Data: {},
       map_url: '',
       error: false,
+      showlocationdata:false,
+      watherInfo:[],
 
     }
   };
@@ -28,10 +30,16 @@ export class App extends Component {
 
 
       const response = await axios.get(url);
-
+const serverurl=`${process.env.REACT_APP_server_url}/weather`
+      const serverresponse = await axios.get(serverurl);
+console.log(serverresponse.data[0].city_name);
       console.log(response.data[0]);
+      
+    
       this.setState({
         Data: response.data[0],
+        showlocationdata:true,
+        watherInfo:serverresponse.data,
 
       });
       const map_url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_API_KEY}&center=${this.state.Data.lat},${this.state.Data.lon}&format=png`;
@@ -49,6 +57,7 @@ export class App extends Component {
 
 
   render() {
+    console.log(this.state.watherInfo);
 console.log(this.state.error);
     return (
       <div >
@@ -66,6 +75,7 @@ console.log(this.state.error);
             Submit
           </Button>
         </Form>
+        {this.state.showlocationdata&&
         <div>
           
           <h2>location informations</h2>
@@ -74,10 +84,16 @@ console.log(this.state.error);
           <p>longitude: {this.state.Data.lon}</p>
           {this.state.error &&<p>error getting the data  </p>}
           <img src={this.state.map_url} alt="" />
-
+        
+         <p>location name : {this.state.watherInfo.city_name}</p>
+         <p>lat : {this.state.watherInfo.lat}</p>
+         <p>long : {this.state.watherInfo.lon}</p>
+         <p>description: : {this.state.watherInfo.timezone}</p>
+         <p>country_code: : {this.state.watherInfo.country_code}</p>
+         <p>state_code: : {this.state.watherInfo.state_code}</p>
 
         </div>
-
+      }
       </div>
     );
   }
