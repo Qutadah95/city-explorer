@@ -58,7 +58,7 @@ console.log(serverresponse.data[0].city_name);
 
   render() {
     console.log(this.state.watherInfo);
-console.log(this.state.error);
+
     return (
       <div >
         <Form onSubmit={this.handelSubmit}>
@@ -88,7 +88,7 @@ console.log(this.state.error);
          <p>location name : {this.state.watherInfo.city_name}</p>
          <p>lat : {this.state.watherInfo.lat}</p>
          <p>long : {this.state.watherInfo.lon}</p>
-         <p>description: : {this.state.watherInfo.timezone}</p>
+         <p>description: : {this.state.watherInfo[0].data[0].weather.description}</p>
          <p>country_code: : {this.state.watherInfo.country_code}</p>
          <p>state_code: : {this.state.watherInfo.state_code}</p>
 
