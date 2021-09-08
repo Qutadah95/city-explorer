@@ -31,7 +31,7 @@ export class App extends Component {
 
 
       const response = await axios.get(url);
-const serverurl=`${process.env.REACT_APP_server_url}/weathered?city_name=${this.state.Name}`
+const serverurl=`${process.env.REACT_APP_server_url}/weather?city_name=${this.state.Name}`
       const serverresponse = await axios.get(serverurl);
 // console.log(serverresponse.data[0].city_name);
       // console.log(response.data[0]);
