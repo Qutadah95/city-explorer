@@ -11,7 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-*{
+/* *{
 
   background-color: navy;
   color: white;
@@ -25,4 +25,4 @@ button{
 input{
   background-color: white;
   color: black;
-}
+} */
