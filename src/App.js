@@ -16,6 +16,7 @@ export class App extends Component {
       watherInfo:[],
 
     }
+
   };
   NameChange = (e) => { this.setState({ Name: e.target.value }) }
   handelSubmit = async (e) => {
@@ -24,7 +25,7 @@ export class App extends Component {
     try {
       console.log(this.state.Name);
 
-
+      console.log(this.state.watherInfo);
 
       const url = `https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_API_KEY}&q=${this.state.Name}&format=json`;
 
@@ -36,7 +37,7 @@ const serverurl=`${process.env.REACT_APP_server_url}/weather?city_name=${this.st
 // console.log(serverresponse.data[0].city_name);
       // console.log(response.data[0]);
       
-    
+     
       this.setState({
         Data: response.data[0],
         showlocationdata:true,
@@ -85,7 +86,8 @@ const serverurl=`${process.env.REACT_APP_server_url}/weather?city_name=${this.st
           <p>location: {this.state.Data.display_name}</p>
           <p>latitude: {this.state.Data.lat}</p>
           <p>longitude: {this.state.Data.lon}</p>
-          {this.state.error &&<p>error getting the data  </p>}
+          {/* {this.state.error &&<p>error getting the data  </p>} */}
+          {/* { array1.map(x => x * 2);} */}
           <img src={this.state.map_url} alt="" />
           
           {/* <p>date: {this.state.watherInfo}</p>
