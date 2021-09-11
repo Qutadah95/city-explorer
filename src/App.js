@@ -71,7 +71,7 @@ console.log(url,'url');
     return (
       <div >
         <div>
-          <Form onSubmit={this.handelSubmit}>
+          <Form onSubmit={this.handelSubmit} >
             <Form.Group onChange={this.NameChange} className="mb-3" controlId="formBasicEmail">
               <Form.Label>location Name</Form.Label>
               <Form.Control name="name" type="text" placeholder="Enter the location Name" />
